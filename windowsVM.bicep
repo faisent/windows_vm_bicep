@@ -2,8 +2,8 @@
 
 param baseName string
 param location string
-param adminAccount string = 'azureadmin'
-param adminPassword string = 'nji9(IJNnji9'
+param adminAccount string
+param adminPassword string
 
 resource virtualNetwork 'Microsoft.Network/virtualnetworks@2015-05-01-preview' existing = {
   name: '${baseName}-vnet'

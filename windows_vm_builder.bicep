@@ -16,6 +16,12 @@ param CIDR string = '10.0.0'
 @description('Tells the vnet creation module to enable custom DNS')
 param dnsEnabled bool = false
 
+@description('Your admin user')
+param adminAccount string
+
+@description('Your admin password')
+param adminPassword string
+
 // first we need a resource group to deploy into
 
 module newResourceGroup 'modules/resourceGroup.bicep' = {
@@ -101,6 +107,8 @@ module newWindowsVM 'modules/windowsVM.bicep' = {
   params: {
     baseName: baseName
     location: location
+    adminAccount: adminAccount
+    adminPassword: adminPassword
   }
   dependsOn: [
     newBastion
